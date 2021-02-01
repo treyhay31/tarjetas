@@ -25,10 +25,10 @@
 	let quarter = quarters[m];
 	const getNextQuarter = () => {
 		month = "any month in"
-		quarter = nextQuarter()
+		quarter = nextQuarter(quarter)
 	}
-	const nextQuarter = () => {
-		const [_, qs] = quarter
+	const nextQuarter = (qtr) => {
+		const [_, qs] = qtr
 		const q = parseInt(qs)
 		if (q+1 > 4) {
 			return `Q${1}`
@@ -36,7 +36,7 @@
 		  return `Q${q + 1}`
 		}
 	}
-	$: theNextQuarter = nextQuarter() 
+	$: theNextQuarter = nextQuarter(quarter) 
 	let month = months[m];
 	const year = date.getFullYear();
 	const bonuses = {
@@ -68,6 +68,13 @@
 	const url = "https://www.nerdwallet.com/credit-cards"
 </script>
 <style>
+	:root {
+		--six: #ffadd2;
+		--five: #b2faf5;
+		--four: #ffd685;
+		--three: #beb2c8;
+		--dark: #101010;
+	}
 	.time {
 		display: grid;
 		grid-template-columns: 3fr 1fr;
@@ -76,39 +83,52 @@
 	
 	.six-percent::before {
 		content:'6%';
+		font-size: 5vw;
+		font-style: italic;
+		font-weight: 500;
 		position: absolute;
 		top: .4rem;
-		right: .4rem;
+		right: .9rem;
+		transition: all 1s;
 	}
 	.five-percent::before {
 		content:'5%';
+		font-size: 5vw;
+		font-style: italic;
+		font-weight: 500;
 		position: absolute;
 		top: .4rem;
-		right: .4rem;
+		right: .9rem;
 	}
 	.four-percent::before {
 		content:'4%';
+		font-size: 5vw;
+		font-style: italic;
+		font-weight: 500;
 		position: absolute;
 		top: .4rem;
-		right: .4rem;
+		right: .9rem;
 	}
 	.three-percent::before {
 		content:'3%';
+		font-size: 5vw;
+		font-style: italic;
+		font-weight: 500;
 		position: absolute;
 		top: .4rem;
-		right: .4rem;
+		right: .9rem;
 	}
 	.six-percent {
-		background: linear-gradient(70deg, #fefefe, #ffadd2);
+		background: linear-gradient(70deg, transparent, #ffadd2);
 	}
 	.five-percent {
-		background: linear-gradient(70deg, #fefefe, #b2faf5);
+		background: linear-gradient(70deg, transparent, #b2faf5);
 	}
 	.four-percent {
-		background: linear-gradient(70deg, #fefefe, #ffd685);
+		background: linear-gradient(70deg, transparent, #ffd685);
 	}
 	.three-percent {
-		background: linear-gradient(70deg, #fefefe, #beb2c8);
+		background: linear-gradient(70deg, transparent, #beb2c8);
 	}
 	.bonus {
 		border-radius: 3px;
@@ -143,13 +163,13 @@
 	<section class="bonus five-percent">
 		<Bonus cardName="Chase" url="https://www.chasebonus.com/" bonuses={bonuses["chase"][quarter]} />
 		<Bonus cardName="Discover" url="https://www.discover.com/credit-cards/cashback-bonus/cashback-calendar.html" bonuses={bonuses["discover"][quarter]} />	
-		<Bonus cardName="Amazon" {url} bonuses={bonuses.amazon} />
+		<Bonus cardName="Amazon" url="https://www.amazon.com/Amazon-Rewards-Visa-Signature-Card/dp/B007URFTYI" bonuses={bonuses.amazon} />
 	</section>
 	<section class="bonus four-percent">
-		<Bonus cardName="Citi" {url} bonuses={bonuses.citi4} />
+		<Bonus cardName="Citi" url="https://www.costco.com/credit-card.html" bonuses={bonuses.citi4} />
 	</section>
 	<section class="bonus three-percent">
-		<Bonus cardName="Citi" {url} bonuses={bonuses.citi3} />
-		<Bonus cardName="Rotating BOA" {url} bonuses={bonuses.boa3} />
+		<Bonus cardName="Citi" url="https://www.costco.com/credit-card.html" bonuses={bonuses.citi3} />
+		<Bonus cardName="Rotating BOA" url="https://www.bankofamerica.com/credit-cards/products/cash-back-credit-card/?campaign=4047600~5B~en_US" bonuses={bonuses.boa3} />
 	</section>
 </main>
