@@ -42,7 +42,7 @@
 	const bonuses = {
     chase: {
 			Q1: ["wholesale","internet/cable/phone","streaming"],
-			Q2: ["unknown"],
+			Q2: ["gas stations", "home improvement"],
 			Q3: ["unknown"],
 			Q4: ["unknown"]
 		},
