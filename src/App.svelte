@@ -73,7 +73,16 @@
 			"travel",
 			"home improvement",
 		],
-		citiCash: ["rotating"],
+		citiCash: [
+			"Restaurants",
+			"gas stations",
+			"grocery stores",
+			"select travel/transit/streaming",
+			"drugstores",
+			"home improvement stores",
+			"fitness clubs",
+			"live entertainment",
+		],
 		citi4: ["gas"],
 		citi3: ["dining", "travel"],
 		citi2: ["costco"],
@@ -113,7 +122,7 @@
 			bonuses={bonuses.amazon}
 		/>
 		<Bonus
-			cardName="CitiCash"
+			cardName="CitiCash (rotating)"
 			url="https://citicards.citi.com/usc/LPACA/Citi/Cards/CustomCash/ps/index.html?cmp=knc|acquire|2006|CARDS|Google|BR&gclid=CjwKCAjwmK6IBhBqEiwAocMc8qJ9upbf9SnM_wkdgsNpPjFUMckCi2Xp1d2sJxznzlXTi7JHlpBnMRoCKGEQAvD_BwE&gclsrc=aw.ds&BT_TX=1&ProspectID=323482389D9E403A8DC4CA38944C67AE"
 			bonuses={bonuses.citiCash}
 		/>
